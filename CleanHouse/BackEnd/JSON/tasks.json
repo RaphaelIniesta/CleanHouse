@@ -1,0 +1,34 @@
+
+{
+  "livingRoom": [
+    "Colocar as Coisas no Lugar",
+    "Limpar Superfícies",
+    "Limpar Sofá",
+    "Arrumar Sofá",
+    "Limpar Vidros/Espelhos",
+    "Varrer/Aspirar o Chão",
+    "Passar Pano no Chão",
+    "Limpar Iluminação"
+  ],
+  "bedroom": [
+    "Arrumar a Cama",
+    "Limpar Superfícies",
+    "Limpar Vidros/Espelhos",
+    "Aspirar/Varrer o Chão",
+    "Passar Pano no Chão"
+  ],
+  "kitchen": [
+    "Tirar o Lixo",
+    "Lavar a Pia",
+    "Limpar Cestinho de Ralo",
+    "Limpar Armários",
+    "Limpar Fogão e Forno"
+  ],
+  "bathRoom": [
+    "Limpar Pia",
+    "Limpar Chuveiro",
+    "Limpar Vaso Sanitário",
+    "Trocar Toalhas",
+    "Limpar Espelho"
+  ]
+}
