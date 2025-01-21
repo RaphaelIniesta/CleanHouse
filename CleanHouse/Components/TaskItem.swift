@@ -21,18 +21,8 @@ struct TaskItem: View {
                 .foregroundStyle(isDone ? .green : .black)
             
             Text(text)
-                .strikethrough(isDone)
+                .animatedStrikeThrough(isDone)
                 .font(.largeTitle)
-                .overlay {
-                    HStack {
-                        // Isso é um strike through com animação customizada
-                        Rectangle()
-                            .frame(maxWidth: isDone ? .infinity : 0)
-                            .frame(maxHeight: 2, alignment: .bottom)
-                            .padding(.top, 7)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
                 .opacity(isDone ? 0.7 : 1)
         }
         .onTapGesture {
@@ -45,4 +35,6 @@ struct TaskItem: View {
 
 #Preview {
     TaskItem(text: "Essa é uma tarefa muito importante")
+    
+    TaskItem(text: "Essa é uma tarefa muito importante \ncom duas linhas")
 }
