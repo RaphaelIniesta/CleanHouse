@@ -6,11 +6,12 @@
 //
 
 
-enum Room: String, CaseIterable {
+enum Room: String, Codable, CaseIterable {
     case livingRoom
     case bedroom
     case kitchen
     case bathroom
+    case laundry
     
     var roomIcon: String {
         switch self {
@@ -18,6 +19,7 @@ enum Room: String, CaseIterable {
         case .bathroom: do { return "bathtub"}
         case .bedroom: do { return "bed.double"}
         case .kitchen:  do { return "fork.knife"}
+        case .laundry: do { return "washer" }
         }
     }
     
@@ -27,6 +29,7 @@ enum Room: String, CaseIterable {
         case .bedroom: do { return "Quarto" }
         case .kitchen: do { return "Cozinha" }
         case .bathroom: do { return "Banheiro" }
+        case .laundry: do { return "Lavanderia" }
         }
     }
 }

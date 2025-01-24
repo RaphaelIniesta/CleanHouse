@@ -7,7 +7,7 @@
 
 import Foundation
 
-func getTasks() -> TasksData? {
+func getTasks() -> TasksData {
     if let url = Bundle.main.url(forResource: "tasks", withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
@@ -18,5 +18,5 @@ func getTasks() -> TasksData? {
             print("Error: \(error)")
         }
     }
-    return nil
+    return TasksData(livinRoom: [], bedroom: [], kitchen: [], bathroom: [], laundry: [])
 }

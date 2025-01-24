@@ -14,7 +14,6 @@ struct TaskItem: View {
     
     var body: some View {
         HStack {
-
             Image(systemName: isDone ? "checkmark.square.fill" : "square")
                 .resizable()
                 .frame(width: 35, height: 35)
@@ -25,6 +24,7 @@ struct TaskItem: View {
                 .font(.largeTitle)
                 .opacity(isDone ? 0.7 : 1)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .onTapGesture {
             withAnimation(.smooth) {
                 isDone.toggle()

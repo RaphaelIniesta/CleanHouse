@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct CleanHouseApp: App {
+    
+    @StateObject var vm = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(vm)
         }
+        .modelContainer(for: DataModel.self)
     }
 }

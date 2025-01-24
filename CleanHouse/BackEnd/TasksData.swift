@@ -7,5 +7,5 @@
 
 
 struct TasksData: Decodable {
-    let livinRoom, bedroom, kitchen, bathroom: [String]
+    let livinRoom, bedroom, kitchen, bathroom, laundry: [String]
 }

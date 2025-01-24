@@ -13,21 +13,20 @@ struct ContentView: View {
     @State var selectedRoom: Room = .livingRoom
     
     var body: some View {
-        NavigationSplitView {
-            ForEach(Room.allCases, id: \.self) { room in
-                Card(room, selectedRoom: $selectedRoom)
-                    .onTapGesture {
-                        withAnimation(.bouncy) {
-                            selectedRoom = room
+        NavigationStack {
+            NavigationSplitView {
+                ForEach(Room.allCases, id: \.self) { room in
+                    Card(room, selectedRoom: $selectedRoom)
+                        .onTapGesture {
+                            withAnimation(.bouncy) {
+                                selectedRoom = room
+                            }
                         }
-                    }
+                }
+                .navigationSplitViewColumnWidth(375)
+            } detail: {
+                TasksView(selectedRoom: $selectedRoom)
             }
-            .navigationSplitViewColumnWidth(375)
-        } detail: {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
         }
     }
 }
