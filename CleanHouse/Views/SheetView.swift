@@ -21,6 +21,7 @@ struct SheetView: View {
     
     @Binding var grid: [[String]]
     @Binding var selectedRoom: Room
+    @Binding var isDefaultOn: Bool
     
     var body: some View {
         NavigationStack {
@@ -50,7 +51,7 @@ struct SheetView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Adicionar") {
                         vm.addTask(task: task, room: room, context: context)
-                        grid = setGrid(model: tasks, selectedRoom: selectedRoom)
+                        grid = setGrid(model: tasks, selectedRoom: selectedRoom, isDefaultOn: isDefaultOn)
                         dismiss()
                     }
                 }
@@ -66,5 +67,5 @@ struct SheetView: View {
 }
 
 #Preview {
-    SheetView(grid: .constant([]), selectedRoom: .constant(.livingRoom))
+    SheetView(grid: .constant([]), selectedRoom: .constant(.livingRoom), isDefaultOn: .constant(false))
 }

@@ -16,6 +16,7 @@ struct TasksView: View {
     @Query var tasks: [DataModel]
     
     @Binding var selectedRoom: Room
+    @Binding var isDefaultOn: Bool
     @State var grid: [[String]] = []
     @State var showSheet: Bool = false
     
@@ -29,19 +30,17 @@ struct TasksView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .border(.green)
             }
-            
-//            Button("Test") {
-//                for item in tasks {
-//                    print(item.task)
-//                }
-//            }
         }
         .padding()
-//        .frame(maxWidth: .infinity, alignment: .leading)
         .onAppear {
-            grid = setGrid(model: tasks, selectedRoom: selectedRoom)
+            grid = setGrid(model: tasks, selectedRoom: selectedRoom, isDefaultOn: isDefaultOn)
+        }
+        .onChange(of: selectedRoom) {
+            grid = setGrid(model: tasks, selectedRoom: selectedRoom, isDefaultOn: isDefaultOn)
+        }
+        .onChange(of: isDefaultOn) {
+            grid = setGrid(model: tasks, selectedRoom: selectedRoom, isDefaultOn: isDefaultOn)
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -53,11 +52,11 @@ struct TasksView: View {
             }
         }
         .sheet(isPresented: $showSheet) {
-            SheetView(grid: $grid, selectedRoom: $selectedRoom)
+            SheetView(grid: $grid, selectedRoom: $selectedRoom, isDefaultOn: $isDefaultOn)
         }
     }
 }
 
 #Preview {
-    TasksView(selectedRoom: .constant(.bedroom))
+    TasksView(selectedRoom: .constant(.bedroom), isDefaultOn: .constant(false))
 }

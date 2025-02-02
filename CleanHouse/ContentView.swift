@@ -9,23 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @AppStorage("isDefaultOn") var defaults: Bool = false
+    
     @State var room: Room = .livingRoom
     @State var selectedRoom: Room = .livingRoom
     
     var body: some View {
         NavigationStack {
             NavigationSplitView {
-                ForEach(Room.allCases, id: \.self) { room in
-                    Card(room, selectedRoom: $selectedRoom)
-                        .onTapGesture {
-                            withAnimation(.bouncy) {
-                                selectedRoom = room
-                            }
-                        }
-                }
-                .navigationSplitViewColumnWidth(375)
+                SideBarView(selectedRoom: $selectedRoom, isShowingDefault: $defaults)
+
             } detail: {
-                TasksView(selectedRoom: $selectedRoom)
+                TasksView(selectedRoom: $selectedRoom, isDefaultOn: $defaults)
             }
         }
     }

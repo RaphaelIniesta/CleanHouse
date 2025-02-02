@@ -24,14 +24,14 @@
     "Limpar Armários",
     "Limpar Fogão e Forno"
   ],
-  "bathRoom": [
+  "bathroom": [
     "Limpar Pia",
     "Limpar Chuveiro",
     "Limpar Vaso Sanitário",
     "Trocar Toalhas",
     "Limpar Espelho"
   ],
-  "laundry" [
+  "laundry": [
       "Recolher Roupa Suja",
       "Separar Roupas para Lavar",
       "Lavar a Roupa",

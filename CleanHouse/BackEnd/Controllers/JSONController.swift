@@ -18,5 +18,5 @@ func getTasks() -> TasksData {
             print("Error: \(error)")
         }
     }
-    return TasksData(livinRoom: [], bedroom: [], kitchen: [], bathroom: [], laundry: [])
+    return TasksData(livingRoom: [], bedroom: [], kitchen: [], bathroom: [], laundry: [])
 }

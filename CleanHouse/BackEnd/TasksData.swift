@@ -7,5 +7,16 @@
 
 
 struct TasksData: Decodable {
-    let livinRoom, bedroom, kitchen, bathroom, laundry: [String]
+    let livingRoom, bedroom, kitchen, bathroom, laundry: [String]
+    
+    func getRoom(room: Room) -> [String] {
+        switch room {
+            
+        case .livingRoom: do { return livingRoom }
+        case .bedroom: do { return bedroom }
+        case .kitchen: do { return kitchen }
+        case .bathroom: do { return bathroom }
+        case .laundry: do { return laundry }
+        }
+    }
 }

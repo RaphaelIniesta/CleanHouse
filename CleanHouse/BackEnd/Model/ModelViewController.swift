@@ -14,6 +14,7 @@ class ViewModel: ObservableObject {
         let task = DataModel(task: task, room: room)
         
         context.insert(task)
+        try? context.save()
         
         print("Task Adicionada: \(task.task) | \(task.room.roomName)")
     }
